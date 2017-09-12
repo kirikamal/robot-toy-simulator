@@ -1,5 +1,6 @@
 class Position
     attr_accessor :x_position, :y_position, :direction
+    DIRECTION_CONST = %w(NORTH EAST SOUTH WEST)
 
     def initialize(x_position, y_position, direction)
         @x_position = x_position
@@ -10,14 +11,22 @@ class Position
     def goto(direction)
         case direction
         when "NORTH"
-            Position.new(@x_position, @y_position+1, @direction)
+            Position.new(@x_position, @y_position + 1, @direction)
         when "EAST"
-            Position.new(@x_position+1, @y_position, @direction)
+            Position.new(@x_position + 1, @y_position, @direction)
         when "WEST"
-            Position.new(@x_position-1, @y_position, @direction)
+            Position.new(@x_position - 1, @y_position, @direction)
         when "SOUTH"
-            Position.new(@x_position, @y_position-1, @direction)
+            Position.new(@x_position, @y_position - 1, @direction)
         end
+    end
+    
+    def turn_left
+        DIRECTION_CONST[(DIRECTION_CONST.index(direction) - 1) % 4]
+    end
+
+    def turn_right
+        DIRECTION_CONST[(DIRECTION_CONST.index(direction) + 1) % 4]
     end
 
 end
