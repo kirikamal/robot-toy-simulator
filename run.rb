@@ -1,28 +1,35 @@
+require_relative 'lib/table'
+require_relative 'lib/robot'
+require_relative 'lib/command'
+require_relative 'lib/position'
+require_relative 'lib/place'
+
+
+table = Table.new(5, 5)
+robot = Robot.new
+command = Command.new(robot, table)
+
 while input = gets.chomp do
     case input
     when ""
-        puts "Exiting..."
+        puts "Program Exiting..."
         break
     else
         # puts input
         if input =~ /^PLACE\s+\d+\s*,\s*\d+\s*,\s*(NORTH|SOUTH|EAST|WEST)$/
             input, x, y, direction = input.gsub(',', ' ').split
-            puts "x: #{x}"
-            puts "y: #{y}"
-            puts "direction: #{direction}"
-            # PlaceCommand.new(@robot, @table, Position.new(x.to_i, y.to_i, direction))
+            position = Position.new(x.to_i, y.to_i, direction)
+            place = Place.new(robot, table, position)            
+            place.place_command
           elsif input =~ /^MOVE$/
-            puts "M: #{input}"
-            # MoveCommand.new(@robot, @table)
+            command.move_command
+            command.move_command
           elsif input =~ /^LEFT$/
-            puts "L: #{input}"
-            # LeftCommand.new(@robot)
+            command.left_command
           elsif input =~ /^RIGHT$/
-            puts "R: #{input}"
-            # RightCommand.new(@robot)
+            command.right_command
           elsif input =~ /^REPORT$/
-            puts "Rpt: #{input}"
-            # ReportCommand.new(@robot)
+            command.report_command
           end
     end
 end
