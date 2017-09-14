@@ -5,7 +5,7 @@ require "robot/toy/simulator/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "robot-toy-simulator"
-  spec.version       = Robot::Toy::Simulator::VERSION
+  spec.version       = Robot1::Toy::Simulator::VERSION
   spec.authors       = ["Kiri Kamal"]
   spec.email         = ["kirikamal@gmail.com"]
 
