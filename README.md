@@ -94,3 +94,20 @@ production. It is not required to provide any graphical output showing the
 movement of the toy robot.
 
 Please do not put your name in any of the submitted code since this makes it harder for us to review your submission anonymously.
+
+
+###-----------------------------------------
+###     How to run the program
+###-----------------------------------------
+
+### Steps to follow
+1. Clone the repo
+2. Goto robot-toy-simulator directory
+3. Install dependecies
+
+
+### To run the app
+```ruby run.rb```
+
+### To Exit 
+"" or empty Command
