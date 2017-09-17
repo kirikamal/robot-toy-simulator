@@ -23,7 +23,6 @@ while input = gets.chomp do
             place.place_command
           elsif input =~ /^MOVE$/
             command.move_command
-            command.move_command
           elsif input =~ /^LEFT$/
             command.left_command
           elsif input =~ /^RIGHT$/
